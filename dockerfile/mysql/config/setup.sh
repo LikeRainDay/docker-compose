@@ -2,7 +2,6 @@
 
 set -e
 
-
 # 查看当前mysql服务的状态，方便调试。
 echo `service mysql status`
 
@@ -11,7 +10,7 @@ service mysql start
 sleep 3
 
 echo "2.导入数据..."
-# mysql < /houshuai_config/scheme.sql
+mysql < /houshuai_config/scheme.sql
 
 echo "3.导入数据完毕"
 sleep 3
