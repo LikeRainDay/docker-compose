@@ -5,7 +5,7 @@
 
 echo "进行开始编译定制化的mysql容器"
 
-echo `docker build -t haizhi/msql:5.6 .`
+docker build -t haizhi/msql:5.6 .
 
 
 # echo "构建完成"
