@@ -1,0 +1,18 @@
+# 进行更改当前的Mysql中的配置内容
+
+#!includedir /etc/mysql/conf.d/
+#!includedir /etc/mysql/mysql.conf.d/
+
+[client]
+default-character-set=utf8
+[mysqld]
+# 设置错误log
+#log-error=/var/log/mysqld.log
+# 设置pid 文件
+pid-file=/var/run/mysqld/mysqld.pid
+# 设置当前的存储引擎
+default-storage-engine=INNODB
+# 设置服务的编码格式
+character-set-server=utf8
+collation-server=utf8_general_ci
+sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'
