@@ -1,0 +1,25 @@
+# version: '2.2'
+# services:
+#   haizhi-mysql:
+#     build: ./dockerfile/mysql/
+#     container_name: haizhi-mysql
+#     ports:
+#       - "3306:3306"
+#   haizhi-redis:
+#     image: redis
+#     container_name: haizhi-redis
+#     ports:
+#       - "6379:6379"
+#   haizhi-model-market:
+#     image: model-market
+#     container_name: haizhi-model-market
+#     ports:
+#       - "8089:8089"
+#     # links:
+#     #   - haizhi-redis
+#     #   - haizhi-mysql
+#     # volumes:
+#     #   - /log:/dev
+# # networks: 
+# #   default:
+# #     driver: haizhi
