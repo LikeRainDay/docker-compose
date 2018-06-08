@@ -2,7 +2,6 @@
 
 set -e
 
-
 # 查看当前mysql服务的状态，方便调试。
 echo `service mysql status`
 
