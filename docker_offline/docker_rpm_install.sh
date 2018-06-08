@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # 进行安装CreateRepo
-docker_rmp_dir = ./docker_rpm
-TempFileDir = /home/houshuai
-CreateRepoFile = $TempFileDir/docker_rpm/createrepo
-DockerRmpFileDir = $TempFileDir/docker_rpm
+docker_rmp_dir = './docker_rpm'
+TempFileDir = '/home/houshuai'
+CreateRepoFile = "$TempFileDir/docker_rpm/createrepo"
+DockerRmpFileDir = "$TempFileDir/docker_rpm"
 
 echo "进行将当前目录进行拷贝到Linux制定目录上"
 cp -rf $docker_rmp_dir $TempFileDir
