@@ -20,6 +20,6 @@ services:
     #   - haizhi-mysql
     # volumes:
     #   - /log:/dev
-# networks: 
-#   default:
-#     driver: haizhi
+networks: 
+  default:
+    driver: haizhi

@@ -11,4 +11,4 @@ docker build -t haizhi/msql:5.6 .
 # echo "构建完成"
 
 # echo "启动容器"
-# docker run -it -d -p 3306:3306 --name my-mysql haizhi/msql:5.6 
+# docker run -it -d -p 3306:3306 --name my-mysql haizhi/msql:5.6 --add-host db-static:86.75.30.9 --privileged
