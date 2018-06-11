@@ -10,11 +10,11 @@ services:
     container_name: haizhi-redis
     ports:
       - "6379:6379"
-  haizhi-model-market:
-    image: model-market
-    container_name: haizhi-model-market
-    ports:
-      - "8089:8089"
+  # haizhi-model-market:
+  #   image: model-market
+  #   container_name: haizhi-model-market
+  #   ports:
+  #     - "8089:8089"
     # links:
     #   - haizhi-redis
     #   - haizhi-mysql
