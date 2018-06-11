@@ -4,7 +4,7 @@
 case "$1" in
     'up')
         echo "正在开启容器组件"
-        docker-compose up -d
+        docker-compose up -d --build
         ;;
     'stop')
         echo "正在关闭容器组件"

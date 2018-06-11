@@ -23,7 +23,10 @@ mysql < /houshuai_config/privilege.sql
 echo '5.修改密码完毕...'
 
 echo `service mysql status`
-echo 'mysql 容器启动完毕，并输入导入成功'
+echo '6. mysql 容器启动完毕，并输入导入成功'
 
+# 停止当前的mysql
+# service mysql stop
+# echo '7. 停止当前的mysql'
 # 进行监控日志
-tail -f /dev/null
+# tail -f /dev/null

@@ -12,6 +12,9 @@ RUN cp -f /houshuai_config/my-mysql.cnf /etc/mysql/conf.d/my-mysql.cnf
 
 # 赋予运行权限
 RUN chmod +x /houshuai_config/setup.sh
+    # chmod +x /houshuai_config/start.sh
+
+# RUN sh /houshuai_config/setup.sh
 
 # 设置容器启动命令
 CMD [ "sh", "/houshuai_config/setup.sh" ]
