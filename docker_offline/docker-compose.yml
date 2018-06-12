@@ -5,9 +5,13 @@ services:
     container_name: haizhi-mysql
     ports:
       - "3306:3306"
+    # network_mode: 
+    #   - name
   haizhi-redis:
     image: redis
     container_name: haizhi-redis
+    # networks: 
+    #   - name
     ports:
       - "6379:6379"
   # haizhi-model-market:
@@ -19,7 +23,7 @@ services:
     #   - haizhi-redis
     #   - haizhi-mysql
     # volumes:
-    #   - /log:/dev
-networks: 
-  default:
-    driver: haizhi
+#     #   - /log:/dev
+# networks: 
+#   name:
+#     driver: haizhi
