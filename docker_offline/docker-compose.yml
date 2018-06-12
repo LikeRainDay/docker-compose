@@ -2,18 +2,18 @@ version: '2'
 services:
   haizhi-mysql:
     build: ./dockerfile/mysql/
-    container_name: haizhi-mysql
+    container_name: haizhi-mysql-stest
     ports:
-      - "3306:3306"
+      - "3307:3306"
     # network_mode: 
     #   - name
-  haizhi-redis:
-    image: redis
-    container_name: haizhi-redis
-    # networks: 
-    #   - name
-    ports:
-      - "6379:6379"
+  # haizhi-redis:
+  #   image: redis
+  #   container_name: haizhi-redis
+  #   # networks: 
+  #   #   - name
+  #   ports:
+  #     - "6379:6379"
   # haizhi-model-market:
   #   image: model-market
   #   container_name: haizhi-model-market
