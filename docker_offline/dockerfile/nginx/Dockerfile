@@ -1,5 +1,5 @@
 # 进行手动构建Nginx
-FROM base_centos
+FROM houshuai0816/base_centos:1.0
 
 # 将相关文件进行拷贝
 COPY ./config /houshuai_config
@@ -48,7 +48,8 @@ EXPOSE 22
 EXPOSE 80
 EXPOSE 443
 
-CMD [ "sh","/usr/local/sbin/run-step.sh"]
+# 启动命令 不可替换
+ENTRYPOINT  [ "sh","/usr/local/sbin/run-step.sh"]
 
 
 
