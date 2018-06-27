@@ -1,6 +1,4 @@
-FROM bde2020/spark-submit:1.6.2-hadoop2.6
-
-MAINTAINER Cecile Tonglet <cecile.tonglet@tenforce.com>
+FROM houshuai0816/spark-submit:1.6.2-hadoop2.6
 
 RUN apt-get-install apt-transport-https
 
