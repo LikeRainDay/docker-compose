@@ -1,4 +1,4 @@
-FROM houshuai0816/spark-submit:1.6.2-hadoop2.6
+FROM houshuai0816/spark-submit:2.3.1-hadoop2.6
 
 RUN apt-get-install apt-transport-https
 

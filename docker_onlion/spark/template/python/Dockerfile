@@ -1,4 +1,4 @@
-FROM houshuai0816/spark-submit:2.3.0-hadoop2.7
+FROM houshuai0816/spark-submit:2.3.1-hadoop2.7
 
 COPY template.sh /
 
