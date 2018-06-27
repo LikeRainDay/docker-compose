@@ -18,8 +18,9 @@ ADD https://raw.githubusercontent.com/guilhem/apt-get-install/master/apt-get-ins
 RUN chmod +x /usr/bin/apt-get-install
 
 RUN apt-get-install -y curl \
-      && chmod +x *.sh \
-      && wget http://mirror.bit.edu.cn/apache/spark/spark-2.3.1/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
+    && chmod +x *.sh
+#     http://mirror.bit.edu.cn/apache/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz
+RUN wget http://mirror.bit.edu.cn/apache/spark/spark-2.3.1/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
       && tar -xvzf spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
       && mv spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION} spark \
       && rm spark-${SPARK_VERSION}-bin-hadoop${HADOOP_VERSION}.tgz \
