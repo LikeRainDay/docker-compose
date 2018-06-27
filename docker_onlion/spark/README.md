@@ -1,4 +1,4 @@
-[![Gitter chat](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/big-data-europe/Lobby)
+
 # Spark docker
 
 Docker images to:
@@ -7,16 +7,7 @@ Docker images to:
 
 Currently supported versions:
 * Spark 2.3.0 for Hadoop 2.7+ with OpenJDK 8
-* Spark 2.2.1 for Hadoop 2.7+ with OpenJDK 8
-* Spark 2.2.0 for Hadoop 2.7+ with OpenJDK 8
-* Spark 2.1.1 for Hadoop 2.7+ with OpenJDK 8
-* Spark 2.1.0 for Hadoop 2.7+ with OpenJDK 8
-* Spark 2.0.2 for Hadoop 2.7+ with OpenJDK 8
-* Spark 2.0.1 for Hadoop 2.7+ with OpenJDK 8
-* Spark 2.0.0 for Hadoop 2.7+ with Hive support and OpenJDK 8
-* Spark 2.0.0 for Hadoop 2.7+ with Hive support and OpenJDK 7
-* Spark 1.6.2 for Hadoop 2.6 and later
-* Spark 1.5.1 for Hadoop 2.6 and later
+
 
 ## Using Docker Compose
 
@@ -64,9 +55,3 @@ To start a Spark master:
 To start a Spark worker:
 
     docker run --name spark-worker-1 --link spark-master:spark-master -e ENABLE_INIT_DAEMON=false -d bde2020/spark-worker:2.3.0-hadoop2.7
-
-## Launch a Spark application
-Building and running your Spark application on top of the Spark cluster is as simple as extending a template Docker image. Check the template's README for further documentation.
-* [Java template](https://github.com/big-data-europe/docker-spark/tree/master/template/java)
-* [Python template](https://github.com/big-data-europe/docker-spark/tree/master/template/python)
-* Scala template (will be added soon)

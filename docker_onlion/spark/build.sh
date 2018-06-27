@@ -19,3 +19,4 @@ build worker
 build submit
 build java-template template/java
 build python-template template/python
+build scala-template template/scala
