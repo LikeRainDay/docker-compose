@@ -27,7 +27,7 @@ RUN chmod +x /houshuai_config/setup.sh &&\
 RUN sh /houshuai_config/setup.sh
 
 # 设置容器启动命令
-CMD [ "sh", "/houshuai_config/start.sh" ]
+ENTRYPOINT [ "sh", "/houshuai_config/start.sh" ]
 
 
 
