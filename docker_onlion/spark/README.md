@@ -55,3 +55,7 @@ To start a Spark master:
 To start a Spark worker:
 
     docker run --name spark-worker-1 --link spark-master:spark-master -e ENABLE_INIT_DAEMON=false -d bde2020/spark-worker:2.3.0-hadoop2.7
+
+
+### Submit your app
+Spark-submit is on `/spark/bin/spark-submit` , If you want to submit your app, you need into spark-worker to public your app.
