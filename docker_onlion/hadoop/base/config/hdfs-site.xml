@@ -29,7 +29,7 @@
   </property>
 
   <property>
-    <name>dfs.namenode.handler.count  </name>
+    <name>dfs.namenode.handler.count</name>
     <value>100</value>
   </property>
 

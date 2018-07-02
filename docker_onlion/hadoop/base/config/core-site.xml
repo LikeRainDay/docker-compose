@@ -19,9 +19,12 @@
 <configuration>
  <property>
       <name>fs.defaultFS</name>
-      <value>hdfs://ruizhia:9000</value>
+      <value>hdfs://master:9000</value>
   </property>
-
+  <property>
+    <name>hadoop.tmp.dir</name>
+    <value>/home/renchao/hadoop/tmp</value>
+  </property>
   <property>
       <name>io.file.buffer.size</name>
       <value>131072</value>

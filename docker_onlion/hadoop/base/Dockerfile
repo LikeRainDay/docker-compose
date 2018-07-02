@@ -23,17 +23,18 @@ RUN wget http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOO
     && mv hadoop-${HADOOP_VERSION} hadoop \
     && rm -rf hadoop-${HADOOP_VERSION}.tar.gz
 
-ENV HADOOP_HOME=hadoop
-ENV HADOOP_PATH=hadoop/bin
-ENV HADOOP_CONF_DIR=hadoop/etc/hadoop
-ENV YARN_CONF_DIR=hadoop/etc/hadoop
+ENV HADOOP_HOME=/hadoop
+ENV HADOOP_PATH=/hadoop/bin
+ENV HADOOP_CONF_DIR=/hadoop/etc/hadoop
+ENV YARN_CONF_DIR=/hadoop/etc/hadoop
 
 RUN mv /config/core-site.xml ${HADOOP_CONF_DIR} \
     && mv /config/hdfs-site.xml ${HADOOP_CONF_DIR} \
     && mv /config/mapred-site.xml ${HADOOP_CONF_DIR} \
     && mv /config/yarn-site.xml ${HADOOP_CONF_DIR} \
     && mv /config/hadoop-env.sh ${HADOOP_CONF_DIR} \
-    && mv /config/workers ${HADOOP_CONF_DIR} 
+    && mv /config/workers ${HADOOP_CONF_DIR} \
+    && mv /config/yarn-env.sh ${HADOOP_CONF_DIR} 
 
 
 # VOLUME [ "/hadoop-${HADOOP_VERSION}/etc" ]

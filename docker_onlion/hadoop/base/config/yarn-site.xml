@@ -22,7 +22,7 @@
 <!-- Configurations for ResourceManager: -->
   <property>
           <name>yarn.resourcemanager.hostname</name>
-          <value>servera</value>
+          <value>master</value>
   </property>
   <!-- 配置外网只需要替换外网ip为真实ip，否则默认为 localhost:8088 -->
   <!-- <property>
