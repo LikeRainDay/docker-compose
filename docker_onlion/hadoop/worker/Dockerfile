@@ -1,4 +1,4 @@
-FROM houshuai0816/hadoop:3.1.0
+FROM houshuai0816/hadoop-base:3.1.0
 
 
 CMD [ "executable" ]
