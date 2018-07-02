@@ -17,9 +17,9 @@ services:
     container_name: hadoop-worker-1
     restart: always
     depends_on:
-      - spark-master
-    ports:
-      - "8081:8081"
+      - hadoop-master
+    # ports:
+    #   - "8081:8081"
     networks:
       - front-tier
       - back-tier
@@ -30,9 +30,9 @@ services:
     container_name: hadoop-worker-2
     restart: always
     depends_on:
-      - spark-master
-    ports:
-      - "8081:8081"
+      - hadoop-master
+    # ports:
+    #   - "8081:8081"
     networks:
       - front-tier
       - back-tier
