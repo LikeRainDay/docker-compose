@@ -26,7 +26,7 @@ RUN wget http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOO
 ENV HADOOP_HOME=/hadoop
 ENV HADOOP_PATH=/hadoop/bin
 ENV HADOOP_CONF_DIR=/hadoop/etc/hadoop
-ENV YARN_CONF_DIR=/hadoop/etc/hadoop
+# ENV YARN_CONF_DIR=/hadoop/etc/hadoop
 
 RUN mv /config/core-site.xml ${HADOOP_CONF_DIR} \
     && mv /config/hdfs-site.xml ${HADOOP_CONF_DIR} \
