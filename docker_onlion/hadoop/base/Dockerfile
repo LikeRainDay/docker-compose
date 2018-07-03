@@ -24,8 +24,8 @@ RUN apt-get-install -y curl \
     && chmod +x ./config/*.sh \
     && chmod +x ./shell/*.sh
 
-# 运行创建脚本
-RUN ./shell/create-net.sh
+RUN brctl show
+
 
 # ssh 
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
@@ -34,14 +34,16 @@ RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
 
 # 固定IP使用
 RUN wget https://github.com/jpetazzo/pipework/archive/master.zip \
-    && unzip pipework-master.zip \
+    && unzip master.zip \
     && mv pipework-master pipework \
-    && cp -rp pipework/pipework /usr/local/bin/ \
+    && cp -rp pipework/pipework /usr/local/bin/pipework \
     && rm -rf pipework-master.zip
 
-# 运行创建IP的脚本
 
 
+
+# 运行创建脚本
+# RUN ./shell/create-net.sh
 
 # 进行Hadoop的属性配置
 RUN wget http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz \
