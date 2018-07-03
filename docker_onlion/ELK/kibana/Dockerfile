@@ -1,1 +1,10 @@
-FROM houshuai0816/elk:6.3
+FROM kibana:latest
+ 
+RUN apt-get update && apt-get install -y netcat
+ 
+COPY /config/entrypoint.sh /tmp/entrypoint.sh
+RUN chmod +x /tmp/entrypoint.sh
+ 
+RUN kibana plugin --install elastic/sense
+ 
+CMD ["/tmp/entrypoint.sh"]
