@@ -8,3 +8,6 @@
 [Hadoop3.1.0](http://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-3.1.0/hadoop-3.1.0-src.tar.gz) :http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-3.1.0/hadoop-3.1.0-src.tar.gz
 
 [Hadoop2.7.0](http://www.apache.org/dyn/closer.cgi/hadoop/common/hadoop-2.7.6/hadoop-2.7.6-src.tar.gz) : http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.6/hadoop-2.7.6-src.tar.gz
+
+
+[pipework](https://github.com/jpetazzo/pipework)  用来进行固定IP使用
