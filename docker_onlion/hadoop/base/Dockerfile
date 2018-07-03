@@ -6,22 +6,41 @@ ENV HADOOP_VERSION=3.1.0
 
 COPY /config /config
 
+COPY /shell /shell
+
 # 增加下载包的环境
 ADD https://raw.githubusercontent.com/guilhem/apt-get-install/master/apt-get-install /usr/bin/
 
 RUN chmod +x /usr/bin/apt-get-install 
 
-
+# 安装ssh需要包
 RUN apt-get-install -y passwd openssl openssh-server
 
+# 安装bridge-utils
+RUN apt-get-install -y bridge-utils
 
 # 进行更新插件包
 RUN apt-get-install -y curl \
-    && chmod +x ./config/*.sh
+    && chmod +x ./config/*.sh \
+    && chmod +x ./shell/*.sh
+
+# 运行创建脚本
+RUN ./shell/create-net.sh
 
 # ssh 
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+
+# 固定IP使用
+RUN wget https://github.com/jpetazzo/pipework/archive/master.zip \
+    && unzip pipework-master.zip \
+    && mv pipework-master pipework \
+    && cp -rp pipework/pipework /usr/local/bin/ \
+    && rm -rf pipework-master.zip
+
+# 运行创建IP的脚本
+
 
 
 # 进行Hadoop的属性配置

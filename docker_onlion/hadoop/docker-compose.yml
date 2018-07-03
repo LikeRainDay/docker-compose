@@ -7,37 +7,43 @@ services:
     networks:
       - front-tier
       - back-tier
+    depends_on:
+      - hadoop-worker-1
+      - hadoop-worker-2
     ports:
       - "8088:8088"
-      # - "7077:7077"
-    # environment:
-    #   - INIT_DAEMON_STEP=setup_spark
+      - "9000:9000"
+      - "50070:50070"
+      - "32770:22"
+    extra_hosts:
+      - "hadoop-master:192.168.2.10"
+      - "hadoop-slave1:192.168.2.11"
+      - "hadoop-slave2:192.168.2.12"
+      - "hadoop-slave3:192.168.2.13"
   hadoop-worker-1:
     image: houshuai0816/hadoop-worker:3.1.0
     container_name: hadoop-worker-1
     restart: always
-    depends_on:
-      - hadoop-master
-    # ports:
-    #   - "8081:8081"
     networks:
       - front-tier
       - back-tier
-    # environment:
-    #   - "SPARK_MASTER=spark://spark-master:7077"
+    extra_hosts:
+      - "hadoop-master:192.168.2.10"
+      - "hadoop-slave1:192.168.2.11"
+      - "hadoop-slave2:192.168.2.12"
+      - "hadoop-slave3:192.168.2.13"
   hadoop-worker-2:
     image: houshuai0816/hadoop-worker:3.1.0
     container_name: hadoop-worker-2
     restart: always
-    depends_on:
-      - hadoop-master
-    # ports:
-    #   - "8081:8081"
     networks:
       - front-tier
       - back-tier
-    # environment:
-    #   - "SPARK_MASTER=spark://spark-master:7077"
+    extra_hosts:
+      - "hadoop-master:192.168.2.10"
+      - "hadoop-slave1:192.168.2.11"
+      - "hadoop-slave2:192.168.2.12"
+      - "hadoop-slave3:192.168.2.13"
 networks: 
   front-tier:
     driver: master
