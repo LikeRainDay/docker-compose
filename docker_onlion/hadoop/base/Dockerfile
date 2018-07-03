@@ -11,10 +11,17 @@ ADD https://raw.githubusercontent.com/guilhem/apt-get-install/master/apt-get-ins
 
 RUN chmod +x /usr/bin/apt-get-install 
 
+
+RUN apt-get-install -y passwd openssl openssh-server
+
+
 # 进行更新插件包
 RUN apt-get-install -y curl \
     && chmod +x ./config/*.sh
 
+# ssh 
+RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
+    cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 
 # 进行Hadoop的属性配置
@@ -34,17 +41,14 @@ RUN mv /config/core-site.xml ${HADOOP_CONF_DIR} \
     && mv /config/yarn-site.xml ${HADOOP_CONF_DIR} \
     && mv /config/hadoop-env.sh ${HADOOP_CONF_DIR} \
     && mv /config/workers ${HADOOP_CONF_DIR} \
-    && mv /config/yarn-env.sh ${HADOOP_CONF_DIR} 
+    && mv /config/yarn-env.sh ${HADOOP_CONF_DIR} \
+    && mv /config/ssh_config ~/.ssh/config
 
 
 # VOLUME [ "/hadoop-${HADOOP_VERSION}/etc" ]
 
-RUN apt-get-install -y python3 python3-setuptools python3-pip
+EXPOSE 22
 
-
-# Fix the value of PYTHONHASHSEED
-# Note: this is needed when you use Python 3.3 or greater
-ENV PYTHONHASHSEED 1
-
+ENTRYPOINT [ "sh", "-c", "service ssh start; bash" ]
 
 

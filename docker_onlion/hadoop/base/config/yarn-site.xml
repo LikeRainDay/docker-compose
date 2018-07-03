@@ -22,12 +22,12 @@
 <!-- Configurations for ResourceManager: -->
   <property>
           <name>yarn.resourcemanager.hostname</name>
-          <value>master</value>
+          <value>hadoop-master</value>
   </property>
   <!-- 配置外网只需要替换外网ip为真实ip，否则默认为 localhost:8088 -->
   <!-- <property>
           <name>yarn.resourcemanager.webapp.address</name>
-          <value>外网ip:8088</value>
+          <value>hadoop-master:8088</value>
   </property> -->
 <!-- Configurations for NodeManager: -->
   <property>
