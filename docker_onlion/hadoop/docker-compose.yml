@@ -7,7 +7,7 @@ services:
     restart: always
     networks:
       app_net:
-        ipv4_address: 192.168.2.30
+        ipv4_address: 10.10.1.30
     ports:
       - "8088:8088"
       - "9000:9000"
@@ -17,37 +17,37 @@ services:
     #   - hadoop-slave1
     #   - hadoop-slave2
     extra_hosts:
-      - "hadoop-master:192.168.2.30"
-      - "hadoop-slave1:192.168.2.31"
-      - "hadoop-slave2:192.168.2.32"
+      - "hadoop-master:10.10.1.30"
+      - "hadoop-slave1:10.10.1.31"
+      - "hadoop-slave2:10.10.1.32"
   hadoop-slave1:
     build: ./worker/
     container_name: hadoop-slave1
     restart: always
     networks:
       app_net:
-        ipv4_address: 192.168.2.31
+        ipv4_address: 10.10.1.31
     # links:
     #   - hadoop-master
     #   - hadoop-slave2
     extra_hosts:
-      - "hadoop-master:192.168.2.30"
-      - "hadoop-slave1:192.168.2.31"
-      - "hadoop-slave2:192.168.2.32"
+      - "hadoop-master:10.10.1.30"
+      - "hadoop-slave1:10.10.1.31"
+      - "hadoop-slave2:10.10.1.32"
   hadoop-slave2:
     build: ./worker/
     container_name: hadoop-slave2
     restart: always
     networks:
       app_net:
-        ipv4_address: 192.168.2.32
+        ipv4_address: 10.10.1.32
     # links:
     #   - hadoop-slave1
     #   - hadoop-slave2
     extra_hosts:
-      - "hadoop-master:192.168.2.30"
-      - "hadoop-slave1:192.168.2.31"
-      - "hadoop-slave2:192.168.2.32"
+      - "hadoop-master:10.10.1.30"
+      - "hadoop-slave1:10.10.1.31"
+      - "hadoop-slave2:10.10.1.32"
 networks:
  app_net:
   driver: macvlan
@@ -55,5 +55,5 @@ networks:
     parent: eth0.10
   ipam:
     config:
-      - subnet: 192.168.2.188/24
-      - gateway: 192.168.2.1
+      - subnet: 10.10.1.0/24
+      - gateway: 10.10.1.2
