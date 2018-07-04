@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 进行创建对应的内容
-
+# 这里是Mac环境   如果是linux 则更换对应的包安装方式
 echo "准备安装环境"
 brew install wget bridget-utils -y
 
