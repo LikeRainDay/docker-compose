@@ -6,52 +6,54 @@ services:
     container_name: hadoop-master
     restart: always
     networks:
-      - master
-      - slave1
-      - slave2
-    depends_on:
-      - hadoop-slave1
-      - hadoop-slave2
+      app_net:
+        ipv4_address: 192.168.2.30
     ports:
       - "8088:8088"
       - "9000:9000"
       - "50070:50070"
       - "32770:22"
-    # extra_hosts:
-    #   - "hadoop-master:192.168.2.10"
-    #   - "hadoop-slave1:192.168.2.11"
-    #   - "hadoop-slave2:192.168.2.12"
-    #   - "hadoop-slave3:192.168.2.13"
+    # links:
+    #   - hadoop-slave1
+    #   - hadoop-slave2
+    extra_hosts:
+      - "hadoop-master:192.168.2.30"
+      - "hadoop-slave1:192.168.2.31"
+      - "hadoop-slave2:192.168.2.32"
   hadoop-slave1:
     build: ./worker/
     container_name: hadoop-slave1
     restart: always
     networks:
-      - master
-      - slave1
-      - slave2
-    # extra_hosts:
-    #   - "hadoop-master:192.168.2.10"
-    #   - "hadoop-slave1:192.168.2.11"
-    #   - "hadoop-slave2:192.168.2.12"
-    #   - "hadoop-slave3:192.168.2.13"
+      app_net:
+        ipv4_address: 192.168.2.31
+    # links:
+    #   - hadoop-master
+    #   - hadoop-slave2
+    extra_hosts:
+      - "hadoop-master:192.168.2.30"
+      - "hadoop-slave1:192.168.2.31"
+      - "hadoop-slave2:192.168.2.32"
   hadoop-slave2:
     build: ./worker/
     container_name: hadoop-slave2
     restart: always
     networks:
-      - master
-      - slave1
-      - slave2
-    # extra_hosts:
-    #   - "hadoop-master:192.168.2.10"
-    #   - "hadoop-slave1:192.168.2.11"
-    #   - "hadoop-slave2:192.168.2.12"
-    #   - "hadoop-slave3:192.168.2.13"
-networks: 
-  master:
-    driver: bridge
-  slave1:
-    driver: bridge
-  slave2:
-    driver: bridge
+      app_net:
+        ipv4_address: 192.168.2.32
+    # links:
+    #   - hadoop-slave1
+    #   - hadoop-slave2
+    extra_hosts:
+      - "hadoop-master:192.168.2.30"
+      - "hadoop-slave1:192.168.2.31"
+      - "hadoop-slave2:192.168.2.32"
+networks:
+ app_net:
+  driver: macvlan
+  driver_opts:
+    parent: eth0.10
+  ipam:
+    config:
+      - subnet: 192.168.2.188/24
+      - gateway: 192.168.2.1
