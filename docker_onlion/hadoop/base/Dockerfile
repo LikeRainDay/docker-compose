@@ -18,8 +18,7 @@ RUN apt-get-install -y passwd openssl openssh-server
 
 # 进行更新插件包
 RUN apt-get-install -y curl \
-    && chmod +x ./config/*.sh \
-    && chmod +x ./shell/*.sh
+    && chmod +x ./config/*.sh 
 
 # ssh 
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
@@ -49,7 +48,7 @@ RUN mv /config/core-site.xml ${HADOOP_CONF_DIR} \
 
 # VOLUME [ "/hadoop-${HADOOP_VERSION}/etc" ]
 
-EXPOSE 22
+
 
 ENTRYPOINT [ "sh", "-c", "service ssh start; bash" ]
 

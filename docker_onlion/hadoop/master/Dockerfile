@@ -6,7 +6,7 @@ RUN chmod +x ./shell/*.sh
     
 RUN /hadoop/bin/hdfs namenode -format myClusterName
 
-EXPOSE 8088 9000
+EXPOSE 8088 9000 22
 
 # 进行运行主master
 ENTRYPOINT [ "sh", "/shell/start_steup.sh" ]
