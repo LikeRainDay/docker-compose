@@ -2,6 +2,7 @@ FROM java:8
 
 # 进行Hadoop基本组件的编排设置
 
+
 ENV HADOOP_VERSION=3.1.0
 
 COPY /config /config
@@ -50,6 +51,6 @@ RUN mv /config/core-site.xml ${HADOOP_CONF_DIR} \
 
 
 
-ENTRYPOINT [ "sh", "-c", "service ssh start; bash" ]
+CMD [ "sh", "-c", "service ssh start; bash" ]
 
 

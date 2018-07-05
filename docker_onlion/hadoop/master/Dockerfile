@@ -4,7 +4,7 @@ COPY /lib /shell
 
 RUN chmod +x ./shell/*.sh 
     
-RUN /hadoop/bin/hdfs namenode -format myClusterName
+RUN /hadoop/bin/hdfs namenode -format 
 
 EXPOSE 8088 9000 22
 

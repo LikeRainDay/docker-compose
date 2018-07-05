@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   hadoop-master:
     # image: houshuai0816/hadoop-master:3.1.0
@@ -6,54 +6,49 @@ services:
     container_name: hadoop-master
     restart: always
     networks:
-      app_net:
-        ipv4_address: 10.10.1.30
+      - master
     ports:
       - "8088:8088"
       - "9000:9000"
       - "50070:50070"
-      - "32770:22"
+      - "22:22"
     # links:
-    #   - hadoop-slave1
-    #   - hadoop-slave2
+    #   - hadoop-slave1:hadoop-slave1
+    #   - hadoop-slave2:hadoop-slave2
     extra_hosts:
-      - "hadoop-master:10.10.1.30"
-      - "hadoop-slave1:10.10.1.31"
-      - "hadoop-slave2:10.10.1.32"
+      - "hadoop-master:192.168.9.92"
+      - "hadoop-slave1:192.168.9.92"
+      - "hadoop-slave2:192.168.9.92"
   hadoop-slave1:
     build: ./worker/
     container_name: hadoop-slave1
     restart: always
     networks:
-      app_net:
-        ipv4_address: 10.10.1.31
+      - master
+    # ports:
+    #   - "22"
     # links:
     #   - hadoop-master
     #   - hadoop-slave2
-    extra_hosts:
-      - "hadoop-master:10.10.1.30"
-      - "hadoop-slave1:10.10.1.31"
-      - "hadoop-slave2:10.10.1.32"
+    # extra_hosts:
+    #   - "hadoop-master:10.10.1.30"
+    #   - "hadoop-slave1:10.10.1.31"
+    #   - "hadoop-slave2:10.10.1.32"
   hadoop-slave2:
     build: ./worker/
     container_name: hadoop-slave2
     restart: always
     networks:
-      app_net:
-        ipv4_address: 10.10.1.32
+      - master
+    # ports:
+    #   - "22"
     # links:
     #   - hadoop-slave1
     #   - hadoop-slave2
-    extra_hosts:
-      - "hadoop-master:10.10.1.30"
-      - "hadoop-slave1:10.10.1.31"
-      - "hadoop-slave2:10.10.1.32"
+    # extra_hosts:
+    #   - "hadoop-master:10.10.1.30"
+    #   - "hadoop-slave1:10.10.1.31"
+    #   - "hadoop-slave2:10.10.1.32"
 networks:
- app_net:
-  driver: macvlan
-  driver_opts:
-    parent: eth0.10
-  ipam:
-    config:
-      - subnet: 10.10.1.0/24
-      - gateway: 10.10.1.2
+ master:
+  driver: bridge
