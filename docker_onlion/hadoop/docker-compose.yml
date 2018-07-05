@@ -17,11 +17,11 @@ services:
       - "9000:9000"
       - "50070:50070"
       - "32770:22"
-    # extra_hosts:
-    #   - "hadoop-master:192.168.2.10"
-    #   - "hadoop-slave1:192.168.2.11"
-    #   - "hadoop-slave2:192.168.2.12"
-    #   - "hadoop-slave3:192.168.2.13"
+    extra_hosts:
+      - "hadoop-master:192.168.2.1"
+      - "hadoop-slave1:192.168.2.2"
+      - "hadoop-slave2:192.168.2.3"
+      - "hadoop-slave3:192.168.2.4"
   hadoop-slave1:
     build: ./worker/
     container_name: hadoop-slave1
@@ -30,11 +30,11 @@ services:
       - master
       - slave1
       - slave2
-    # extra_hosts:
-    #   - "hadoop-master:192.168.2.10"
-    #   - "hadoop-slave1:192.168.2.11"
-    #   - "hadoop-slave2:192.168.2.12"
-    #   - "hadoop-slave3:192.168.2.13"
+    extra_hosts:
+      - "hadoop-master:192.168.2.1"
+      - "hadoop-slave1:192.168.2.2"
+      - "hadoop-slave2:192.168.2.3"
+      - "hadoop-slave3:192.168.2.4"
   hadoop-slave2:
     build: ./worker/
     container_name: hadoop-slave2
@@ -43,11 +43,11 @@ services:
       - master
       - slave1
       - slave2
-    # extra_hosts:
-    #   - "hadoop-master:192.168.2.10"
-    #   - "hadoop-slave1:192.168.2.11"
-    #   - "hadoop-slave2:192.168.2.12"
-    #   - "hadoop-slave3:192.168.2.13"
+    extra_hosts:
+      - "hadoop-master:192.168.2.1"
+      - "hadoop-slave1:192.168.2.2"
+      - "hadoop-slave2:192.168.2.3"
+      - "hadoop-slave3:192.168.2.4"
 networks: 
   master:
     driver: bridge
